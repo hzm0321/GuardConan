@@ -1,25 +1,21 @@
 package cn.hzmeurasia.guardconan.activity;
 
 import android.Manifest;
-import android.app.Fragment;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Canvas;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -29,13 +25,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
-import com.qmuiteam.qmui.widget.dialog.QMUIDialogView;
 
 import java.io.IOException;
 
-import butterknife.BindView;
-import butterknife.BindViews;
-import butterknife.ButterKnife;
 import cn.hzmeurasia.guardconan.R;
 import cn.hzmeurasia.guardconan.base.BaseActivity;
 import cn.hzmeurasia.guardconan.entity.AppInfo;
@@ -43,8 +35,6 @@ import cn.hzmeurasia.guardconan.service.DownloadService;
 import cn.hzmeurasia.guardconan.utils.HttpUtil;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.Response;
 
 /**
@@ -101,6 +91,7 @@ public class SplashActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             layout.setSystemUiVisibility(View.INVISIBLE);
         }
+        //去除标题栏
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }

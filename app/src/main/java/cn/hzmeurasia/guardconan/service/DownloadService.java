@@ -20,7 +20,6 @@ import java.io.File;
 
 import cn.hzmeurasia.guardconan.R;
 import cn.hzmeurasia.guardconan.activity.HomeActivity;
-import cn.hzmeurasia.guardconan.activity.SplashActivity;
 import cn.hzmeurasia.guardconan.listen.DownloadListener;
 import cn.hzmeurasia.guardconan.utils.DownloadTask;
 
