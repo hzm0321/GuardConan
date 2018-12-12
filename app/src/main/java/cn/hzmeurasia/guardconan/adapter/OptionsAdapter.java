@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.hzmeurasia.guardconan.MyApplication;
 import cn.hzmeurasia.guardconan.R;
+import cn.hzmeurasia.guardconan.activity.BlackNumberActivity;
 import cn.hzmeurasia.guardconan.entity.Options;
 
 /**
@@ -34,7 +35,27 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(MyApplication.getContext()).inflate(R.layout.options_item, parent, false);
-        return new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = holder.getAdapterPosition();
+                switch(position) {
+                    //手机防盗
+                    case 0:
+
+                        break;
+                    //通讯卫士
+                    case 1:
+                        BlackNumberActivity.startAct(MyApplication.getContext());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        return holder;
     }
 
     @Override

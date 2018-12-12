@@ -3,6 +3,8 @@ package cn.hzmeurasia.guardconan;
 import android.app.Application;
 import android.content.Context;
 
+import org.litepal.LitePal;
+
 /**
  * 类名: MyApplication<br>
  * 功能:(全局Application)<br>
@@ -17,6 +19,9 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        //创建本地数据库
+        LitePal.initialize(context);
+        LitePal.getDatabase();
     }
 
     public static Context getContext() {

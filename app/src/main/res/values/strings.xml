@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">柯南卫士</string>
     <string name="splash_version">版本号:1.0.1</string>
+
+    <!--通讯卫士模块-->
+    <string name="communication">通讯卫士</string>
+    <string name="empty_black_number">您还没有添加任何黑名单</string>
+    <string name="add_black_number">添加黑名单</string>
+    <string name="edit_black_number">编辑黑名单</string>
+    <string name="add_phone_number">请输入要添加的号码</string>
+    <string name="add_name">请输入名称</string>
+    <string name="phone_intercept">电话拦截</string>
+    <string name="message_intercept">短信拦截</string>
+    <string name="add_from_contacts">从联系人中添加</string>
 </resources>

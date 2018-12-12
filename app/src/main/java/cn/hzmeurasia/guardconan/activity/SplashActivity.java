@@ -73,6 +73,13 @@ public class SplashActivity extends BaseActivity {
             switch(msg.what) {
                 case UPDATE_FAIL:
                     Toast.makeText(SplashActivity.this, "检查更新失败", Toast.LENGTH_SHORT).show();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startHomeActivity();
+                        }
+                    }, 3000);
+
                     break;
                 case UPDATE_SUCCESS:
                     Toast.makeText(SplashActivity.this,"有新的版本",Toast.LENGTH_SHORT).show();

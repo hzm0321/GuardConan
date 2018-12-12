@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.widget.QMUIWindowInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:fitsSystemWindows="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_black_number_empty"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon"/>
+
+        <TextView
+            android:id="@+id/tv_black_number_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/qmui_config_color_gray_2"
+            android:layout_below="@id/iv_black_number_empty"
+            android:text="@string/empty_black_number"/>
+
+        <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:id="@+id/swipe_recycler_view_black_number_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView>
+
+        <!--<com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+            <!--android:id="@+id/qmui_round_button_black_number_add"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/add_black_number"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:textSize="18sp"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingLeft="16dp"-->
+            <!--android:paddingRight="16dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--app:qmui_backgroundColor="@color/qmui_config_color_gray_2"-->
+            <!--app:qmui_borderColor="@color/qmui_config_color_gray_2"-->
+            <!--android:textColor="@color/white"-->
+            <!--app:qmui_isRadiusAdjustBounds="true"/>-->
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add"
+            android:scaleType="centerCrop"
+            android:id="@+id/fab_black_number_add"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</com.qmuiteam.qmui.widget.QMUIWindowInsetLayout>
