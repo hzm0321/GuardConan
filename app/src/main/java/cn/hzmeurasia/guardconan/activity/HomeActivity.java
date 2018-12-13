@@ -41,10 +41,6 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.home_activity);
-        //去除标题栏
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
         //加载卡片视图界面
         for (int i = 0; i < mOptions.length; i++) {
             optionsList.add(mOptions[i]);

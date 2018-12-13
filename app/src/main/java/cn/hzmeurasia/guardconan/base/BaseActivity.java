@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * 类名: BaseActivity<br>
  * 功能:(Activity基类)<br>
@@ -15,9 +17,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //去除标题栏
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         initVariables();
         initViews(savedInstanceState);
         loadData();
+
     }
 
     /**

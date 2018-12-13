@@ -12,7 +12,7 @@ public class BlackNumberDb extends LitePalSupport {
 
     private int id;
 
-    private int number;
+    private String number;
 
     private String name;
 
@@ -20,16 +20,16 @@ public class BlackNumberDb extends LitePalSupport {
 
     private String message;
 
-    public BlackNumberDb() {
-
-    }
-
-    public BlackNumberDb(int id, int number, String name, String phone, String message) {
+    public BlackNumberDb(int id, String number, String name, String phone, String message) {
         this.id = id;
         this.number = number;
         this.name = name;
         this.phone = phone;
         this.message = message;
+    }
+
+    public BlackNumberDb() {
+
     }
 
     public int getId() {
@@ -40,11 +40,11 @@ public class BlackNumberDb extends LitePalSupport {
         this.id = id;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

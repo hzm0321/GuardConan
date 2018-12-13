@@ -12,4 +12,8 @@
     <string name="phone_intercept">电话拦截</string>
     <string name="message_intercept">短信拦截</string>
     <string name="add_from_contacts">从联系人中添加</string>
+    <string name="select_contacts">选择联系人</string>
+
+    <!--软件管家模块-->
+    <string name="app_manager">软件管家</string>
 </resources>

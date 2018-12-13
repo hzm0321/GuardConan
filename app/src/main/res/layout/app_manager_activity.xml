@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:fitsSystemWindows="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:text="剩余手机内存"
+            android:textColor="@color/qmui_config_color_gray_2"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_app_manager_phone_memory"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:text="剩余sd内存"
+            android:textColor="@color/qmui_config_color_gray_2"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_app_manager_sd_memory"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lv_app_manager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="@color/qmui_config_color_transparent"/>
+
+        <TextView
+            android:id="@+id/tv_app_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="用户程序"
+            android:textColor="@color/qmui_config_color_gray_2"
+            android:background="@color/qmui_config_color_gray_9"/>
+
+    </FrameLayout>
+
+
+</LinearLayout>

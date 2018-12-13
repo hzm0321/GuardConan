@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.hzmeurasia.guardconan.MyApplication;
 import cn.hzmeurasia.guardconan.R;
+import cn.hzmeurasia.guardconan.activity.AppManagerActivity;
 import cn.hzmeurasia.guardconan.activity.BlackNumberActivity;
 import cn.hzmeurasia.guardconan.entity.Options;
 
@@ -43,11 +44,14 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.ViewHold
                 switch(position) {
                     //手机防盗
                     case 0:
-
                         break;
                     //通讯卫士
                     case 1:
                         BlackNumberActivity.startAct(MyApplication.getContext());
+                        break;
+                    //软件管家
+                    case 2:
+                        AppManagerActivity.startAct(MyApplication.getContext());
                         break;
                     default:
                         break;

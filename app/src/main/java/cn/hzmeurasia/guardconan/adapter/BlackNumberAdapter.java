@@ -40,6 +40,7 @@ public class BlackNumberAdapter  extends RecyclerView.Adapter<BlackNumberAdapter
 
     private BlackNumberCheckEmpty checkEmpty;
 
+
     public void setCheckEmpty(BlackNumberCheckEmpty checkEmpty) {
         this.checkEmpty = checkEmpty;
     }
@@ -64,6 +65,7 @@ public class BlackNumberAdapter  extends RecyclerView.Adapter<BlackNumberAdapter
                 if (mBlackNumberDbs.size() == 0) {
                     checkEmpty.DataSizeChange();
                 }
+
             }
         });
         return holder;
@@ -106,26 +108,5 @@ public class BlackNumberAdapter  extends RecyclerView.Adapter<BlackNumberAdapter
         void DataSizeChange();
     }
 
-    /**
-     * 显示更新对话框
-     */
-    private void showDeleteDialog() {
-        new QMUIDialog.MessageDialogBuilder(MyApplication.getContext())
-                .setTitle("正在删除")
-                .setMessage("您确定要删除吗?")
-                .addAction("取消", new QMUIDialogAction.ActionListener() {
-                    @Override
-                    public void onClick(QMUIDialog dialog, int index) {
-                        dialog.dismiss();
-                    }
-                })
-                .addAction(0,"删除", QMUIDialogAction.ACTION_PROP_NEUTRAL,new QMUIDialogAction.ActionListener() {
-                    @Override
-                    public void onClick(QMUIDialog dialog, int index) {
-                        dialog.dismiss();
-                    }
-                })
-                .setCanceledOnTouchOutside(false)
-                .create().show();
-    }
+
 }

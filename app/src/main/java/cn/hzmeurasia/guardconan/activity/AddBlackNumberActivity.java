@@ -13,9 +13,11 @@ import android.widget.Toast;
 import com.qmuiteam.qmui.widget.QMUITopBarLayout;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
+import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.hzmeurasia.guardconan.MyApplication;
 import cn.hzmeurasia.guardconan.R;
 import cn.hzmeurasia.guardconan.base.BaseActivity;
@@ -46,6 +48,9 @@ public class AddBlackNumberActivity extends BaseActivity {
     @BindView(R.id.cb_message)
     AppCompatCheckBox cbMessage;
 
+    @BindView(R.id.qmui_round_button_black_number_contact_add)
+    QMUIRoundButton rbContactAdd;
+
     QMUITipDialog tipDialog;
 
     private String tipText;
@@ -53,6 +58,18 @@ public class AddBlackNumberActivity extends BaseActivity {
     private boolean flag;
 
     private int id;
+
+    @OnClick(R.id.qmui_round_button_black_number_contact_add)
+    void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.qmui_round_button_black_number_contact_add:
+                SelectContactActivity.startAct(AddBlackNumberActivity.this);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     /**
      * 初始化工具栏
@@ -81,7 +98,6 @@ public class AddBlackNumberActivity extends BaseActivity {
 
                     }
                 });
-
     }
 
     public static void startAct(Context context) {
@@ -99,10 +115,6 @@ public class AddBlackNumberActivity extends BaseActivity {
         setContentView(R.layout.add_black_number_activity);
         ButterKnife.bind(this);
         Log.d(TAG, "initViews: 加载视图");
-        //去除标题栏
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
         initData();
         initTopBar();
 
@@ -118,7 +130,7 @@ public class AddBlackNumberActivity extends BaseActivity {
         if (flag) {
             //从编辑页面跳转而来
             Log.d(TAG, "initData: 电话号码"+intent.getIntExtra("phone",0));
-            etPhone.setText(String.valueOf(intent.getIntExtra("phone",0)));
+            etPhone.setText(String.valueOf(intent.getStringExtra("phone")));
             etName.setText(intent.getStringExtra("name"));
             Log.d(TAG, "initData: "+intent.getStringExtra("checkPhone"));
             Log.d(TAG, "initData: "+intent.getStringExtra("checkMessage"));
@@ -139,6 +151,15 @@ public class AddBlackNumberActivity extends BaseActivity {
     @Override
     protected void initVariables() {
 
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        Intent intent1 = getIntent();
+        etName.setText(intent1.getStringExtra("name"));
+        etPhone.setText(intent1.getStringExtra("phone"));
     }
 
     /**
@@ -187,7 +208,7 @@ public class AddBlackNumberActivity extends BaseActivity {
      */
     private void insertDb() {
         BlackNumberDb blackNumberDb = new BlackNumberDb();
-        blackNumberDb.setNumber(Integer.parseInt(etPhone.getText().toString()));
+        blackNumberDb.setNumber(etPhone.getText().toString());
         blackNumberDb.setName(etName.getText().toString());
         if (cbPhone.isChecked()) {
             blackNumberDb.setPhone("电话拦截");

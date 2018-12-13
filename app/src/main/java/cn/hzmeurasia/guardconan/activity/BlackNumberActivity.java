@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qmuiteam.qmui.widget.QMUITopBarLayout;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuBridge;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
@@ -118,10 +120,6 @@ public class BlackNumberActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.black_number_activity);
         ButterKnife.bind(this);
-        //去除标题栏
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
         //初始化工具栏
         initTopBar();
         mBlackNumberDbList = LitePal.findAll(BlackNumberDb.class);
@@ -135,6 +133,7 @@ public class BlackNumberActivity extends BaseActivity {
                 checkEmpty();
             }
         });
+
         //创建侧滑菜单
         SwipeMenuCreator mSwipeMenuCreator = new SwipeMenuCreator() {
             @Override
@@ -206,6 +205,7 @@ public class BlackNumberActivity extends BaseActivity {
         mBlackNumberDbList.addAll(LitePal.findAll(BlackNumberDb.class));
         adapter.notifyDataSetChanged();
     }
+
 
     @Override
     protected void onRestart() {

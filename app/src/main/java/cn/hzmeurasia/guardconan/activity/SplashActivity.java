@@ -98,10 +98,6 @@ public class SplashActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             layout.setSystemUiVisibility(View.INVISIBLE);
         }
-        //去除标题栏
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
         Intent intent = new Intent(this, DownloadService.class);
         //启动服务
         startService(intent);

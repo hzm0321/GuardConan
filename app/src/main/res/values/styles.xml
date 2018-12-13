@@ -19,4 +19,10 @@
     <style name="CommunicationText">
         <item name="android:textSize">16sp</item>
     </style>
+
+    <!--软件管家item文字字体样式-->
+    <style name="AppMangerItemText" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
