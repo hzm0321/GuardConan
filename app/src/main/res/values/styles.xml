@@ -15,6 +15,7 @@
         <item name="qmui_topbar_title_text_size">20sp</item>
     </style>
 
+
     <!--通讯卫士文字字体样式-->
     <style name="CommunicationText">
         <item name="android:textSize">16sp</item>
