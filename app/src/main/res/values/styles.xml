@@ -9,6 +9,18 @@
         <item name="QMUITopBarStyle">@style/QDTopBar</item>
     </style>
 
+    <!--底部按钮样式-->
+    <style name="BottomButton">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:paddingLeft">50dp</item>
+        <item name="android:paddingRight">50dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
     <!--QMUI标题栏-->
     <style name="QDTopBar" parent="QMUI.TopBar">
         <item name="qmui_topbar_title_color">@color/white</item>
@@ -25,5 +37,10 @@
     <style name="AppMangerItemText" >
         <item name="android:textSize">16sp</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <!--缓存清理home文字样式-->
+    <style name="CleanCacheHomeText">
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

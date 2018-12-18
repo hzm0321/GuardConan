@@ -20,6 +20,9 @@ import cn.hzmeurasia.guardconan.MyApplication;
 import cn.hzmeurasia.guardconan.R;
 import cn.hzmeurasia.guardconan.activity.AppManagerActivity;
 import cn.hzmeurasia.guardconan.activity.BlackNumberActivity;
+import cn.hzmeurasia.guardconan.activity.CleanCacheActivity;
+import cn.hzmeurasia.guardconan.activity.ProgressManagerActivity;
+import cn.hzmeurasia.guardconan.activity.VirusScanActivity;
 import cn.hzmeurasia.guardconan.entity.Options;
 
 /**
@@ -65,12 +68,23 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.ViewHold
                     case 2:
                         AppManagerActivity.startAct(MyApplication.getContext());
                         break;
+                    //手机杀毒
+                    case 3:
+                        VirusScanActivity.startAct(MyApplication.getContext());
+                        break;
+                    //缓存清理
+                    case 4:
+                        CleanCacheActivity.startAct(MyApplication.getContext());
+                        break;
+                    //进程管理
+                    case 5:
+                        ProgressManagerActivity.startAct(MyApplication.getContext());
+                        break;
                     default:
                         break;
                 }
             }
         });
-
         return holder;
     }
 

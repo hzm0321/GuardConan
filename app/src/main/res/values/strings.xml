@@ -25,4 +25,24 @@
 
     <!--软件管家模块-->
     <string name="app_manager">软件管家</string>
+
+    <!--手机杀毒模块-->
+    <string name="virus_kill">病毒查杀</string>
+    <string name="virus_kill_scan">病毒查杀进度</string>
+    <string name="cancel_scan">取消扫描</string>
+    <string name="restart_scan">重新扫描</string>
+    <string name="finish">完成</string>
+
+    <!--缓存清理模块-->
+    <string name="scan_cache">缓存扫描</string>
+    <string name="clean_cache">缓存清理</string>
+    <string name="one_click_clean">一键清理</string>
+    <string name="scanning">正在扫描: </string>
+    <string name="already_scan">已扫描缓存: </string>
+
+    <!--进程管理模块-->
+    <string name="progress_manager">进程管理</string>
+    <string name="clear">清理</string>
+    <string name="all_selected">全选</string>
+    <string name="contract_selected">反选</string>
 </resources>

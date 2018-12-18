@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <ImageView
+        android:layout_margin="5dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/iv_item_clean_cache"/>
+
+    <ImageView
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_done_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv_item_clean_cache_confirm"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/iv_item_clean_cache"
+        android:text="哔哩哔哩"
+        android:textColor="@color/gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_item_clean_cache_name"/>
+
+    <TextView
+        android:text="7mb"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"
+        android:layout_toRightOf="@id/iv_item_clean_cache"
+        android:layout_alignBottom="@id/iv_item_clean_cache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_item_clean_cache_size"/>
+
+</RelativeLayout>

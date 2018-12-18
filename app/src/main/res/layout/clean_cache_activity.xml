@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:fitsSystemWindows="true"/>
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:id="@+id/iv_clean_cache_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@color/qmui_config_color_gray_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:id="@+id/tv_scan"
+            style="@style/CleanCacheHomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scanning"/>
+
+        <TextView
+            style="@style/CleanCacheHomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_clean_cache_package_name"
+            android:text="test"
+            android:layout_toRightOf="@id/tv_scan"/>
+
+        <TextView
+            android:layout_toLeftOf="@id/tv_clean_cache_already_size"
+            style="@style/CleanCacheHomeText"
+            android:text="@string/already_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_clean_cache_already"/>
+
+        <TextView
+            android:paddingRight="10dp"
+            android:layout_alignParentRight="true"
+            android:text="120mb"
+            style="@style/CleanCacheHomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_clean_cache_already_size"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_clean_cache_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/rbtn_clean_cache_home"
+        style="@style/BottomButton"
+        android:enabled="true"
+        app:qmui_backgroundColor="@color/qmui_config_color_gray_2"
+        app:qmui_borderColor="@color/qmui_config_color_gray_2"
+        android:textColor="@color/white"
+        app:qmui_radius="8dp"
+        android:visibility="gone"
+        android:text="@string/one_click_clean"/>
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/rbtn_clean_cache_home_alpha"
+        style="@style/BottomButton"
+        app:qmui_backgroundColor="@color/qmui_config_color_gray_8"
+        app:qmui_borderColor="@color/qmui_config_color_gray_8"
+        android:textColor="@color/qmui_config_color_gray_4"
+        app:qmui_radius="8dp"
+        android:enabled="false"
+        android:text="@string/one_click_clean"/>
+
+</LinearLayout>

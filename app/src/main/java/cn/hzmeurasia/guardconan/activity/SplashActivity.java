@@ -66,7 +66,6 @@ public class SplashActivity extends BaseActivity {
     private TextView mTextVersion;
     private AppInfo mLocalAppInfo;
     private AppInfo mRemoteAppInfo;
-    private TextView mTvProgress;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {

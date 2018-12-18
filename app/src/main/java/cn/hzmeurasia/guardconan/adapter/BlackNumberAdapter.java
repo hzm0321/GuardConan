@@ -1,20 +1,13 @@
 package cn.hzmeurasia.guardconan.adapter;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
-import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
-
-import org.litepal.LitePal;
 
 import java.util.List;
 
@@ -22,8 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.hzmeurasia.guardconan.MyApplication;
 import cn.hzmeurasia.guardconan.R;
-import cn.hzmeurasia.guardconan.activity.BlackNumberActivity;
-import cn.hzmeurasia.guardconan.activity.SplashActivity;
 import cn.hzmeurasia.guardconan.db.BlackNumberDb;
 
 /**
@@ -36,13 +27,12 @@ public class BlackNumberAdapter  extends RecyclerView.Adapter<BlackNumberAdapter
 
     private List<BlackNumberDb> mBlackNumberDbs;
 
+    private DeleteClickListener deleteClickListener;
+
     private static final String TAG = "BlackNumberAdapter";
 
-    private BlackNumberCheckEmpty checkEmpty;
-
-
-    public void setCheckEmpty(BlackNumberCheckEmpty checkEmpty) {
-        this.checkEmpty = checkEmpty;
+    public void setDeleteClickListener(DeleteClickListener deleteCilckListener) {
+        this.deleteClickListener = deleteCilckListener;
     }
 
     public BlackNumberAdapter(List<BlackNumberDb> blackNumberDbList) {
@@ -58,14 +48,7 @@ public class BlackNumberAdapter  extends RecyclerView.Adapter<BlackNumberAdapter
             @Override
             public void onClick(View view) {
                 int position = holder.getAdapterPosition();
-                Toast.makeText(MyApplication.getContext(),"已删除"+mBlackNumberDbs.get(position).getName(),Toast.LENGTH_SHORT).show();
-                LitePal.deleteAll(BlackNumberDb.class, "id = ?", String.valueOf(mBlackNumberDbs.get(position).getId()));
-                mBlackNumberDbs.remove(mBlackNumberDbs.get(position));
-                BlackNumberAdapter.this.notifyDataSetChanged();
-                if (mBlackNumberDbs.size() == 0) {
-                    checkEmpty.DataSizeChange();
-                }
-
+                deleteClickListener.onClick(position);
             }
         });
         return holder;
@@ -104,9 +87,7 @@ public class BlackNumberAdapter  extends RecyclerView.Adapter<BlackNumberAdapter
         }
     }
 
-    public interface BlackNumberCheckEmpty{
-        void DataSizeChange();
+    public interface DeleteClickListener{
+        void onClick(int position);
     }
-
-
 }

@@ -127,10 +127,16 @@ public class BlackNumberActivity extends BaseActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
         adapter = new BlackNumberAdapter(mBlackNumberDbList);
-        adapter.setCheckEmpty(new BlackNumberAdapter.BlackNumberCheckEmpty() {
+//        adapter.setCheckEmpty(new BlackNumberAdapter.BlackNumberCheckEmpty() {
+//            @Override
+//            public void DataSizeChange() {
+//                checkEmpty();
+//            }
+//        });
+        adapter.setDeleteClickListener(new BlackNumberAdapter.DeleteClickListener() {
             @Override
-            public void DataSizeChange() {
-                checkEmpty();
+            public void onClick(int position) {
+                showDeleteDialog(position);
             }
         });
 
@@ -204,6 +210,37 @@ public class BlackNumberActivity extends BaseActivity {
         mBlackNumberDbList.clear();
         mBlackNumberDbList.addAll(LitePal.findAll(BlackNumberDb.class));
         adapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 显示是否删除弹框
+     */
+    private void showDeleteDialog(final int position) {
+        final String name = mBlackNumberDbList.get(position).getName();
+        final int id = mBlackNumberDbList.get(position).getId();
+        new QMUIDialog.MessageDialogBuilder(BlackNumberActivity.this)
+                .setTitle("删除黑名单用户")
+                .setMessage("确定要删除"+name+"吗?")
+                .addAction("取消", new QMUIDialogAction.ActionListener() {
+                    @Override
+                    public void onClick(QMUIDialog dialog, int index) {
+                        dialog.dismiss();
+                    }
+                })
+                .addAction(0, "删除", QMUIDialogAction.ACTION_PROP_NEGATIVE, new QMUIDialogAction.ActionListener() {
+                    @Override
+                    public void onClick(QMUIDialog dialog, int index) {
+                        Toast.makeText(MyApplication.getContext(),"已删除"+name,Toast.LENGTH_SHORT).show();
+                        LitePal.deleteAll(BlackNumberDb.class, "id = ?", String.valueOf(id));
+                        mBlackNumberDbList.remove(position);
+                        adapter.notifyDataSetChanged();
+                        if (mBlackNumberDbList.size() == 0) {
+                            checkEmpty();
+                        }
+                        dialog.dismiss();
+                    }
+                })
+                .create().show();
     }
 
 
