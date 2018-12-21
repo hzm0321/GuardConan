@@ -45,4 +45,17 @@
     <string name="clear">清理</string>
     <string name="all_selected">全选</string>
     <string name="contract_selected">反选</string>
+
+    <!--流量统计-->
+    <string name="traffic_monitor">流量统计</string>
+    <string name="carrierOpera">运营商信息设置</string>
+    <string name="carrierOpera_selected">运营商选择</string>
+    <string name="message">仅一次简单设置，以后即可便捷矫正流量，时刻保持与运营商的精确同步。</string>
+
+    <!--高级工具-->
+    <string name="advanced_tools">高级工具</string>
+    <string name="number_belong_to">号码归属地查询</string>
+    <string name="search_number">请输入要查询的号码</string>
+    <string name="search">查询</string>
+    <string name="app_lock">程序锁</string>
 </resources>

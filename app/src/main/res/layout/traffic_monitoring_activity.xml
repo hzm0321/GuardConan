@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:fitsSystemWindows="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/iv_dome"
+            android:src="@mipmap/icon_traffic_monitor"/>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_alignTop="@id/iv_dome"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_dome"
+            android:text="本月流量充足"/>
+        
+        <LinearLayout
+            android:padding="5dp"
+            android:background="@color/qmui_config_color_gray_9"
+            android:layout_marginTop="10dp"
+            android:id="@+id/ll_message"
+            android:layout_below="@id/iv_dome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TrafficText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="本日已用：0B"/>
+
+            <TextView
+                style="@style/TrafficText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="本月已用：0B"/>
+
+            <TextView
+                style="@style/TrafficText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="本月流量：0B"/>
+
+        </LinearLayout>
+
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:id="@+id/rbtn_virus_scan_speed"
+            style="@style/BottomButton"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:qmui_backgroundColor="@color/qmui_config_color_gray_2"
+            app:qmui_borderColor="@color/qmui_config_color_gray_2"
+            android:textColor="@color/white"
+            android:text="校正流量"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

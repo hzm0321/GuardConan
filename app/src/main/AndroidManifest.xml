@@ -36,6 +36,12 @@
         <activity android:name=".activity.VirusScanActivity" />
         <activity android:name=".activity.VirusScanSpeedActivity" />
         <activity android:name=".activity.ProgressManagerActivity" />
+        <activity android:name=".activity.TrafficMonitoringActivity" />
+        <activity android:name=".activity.OperatorSetActivity" />
+        <activity android:name=".activity.AdvancedToolsActivity" />
+        <activity android:name=".activity.NumBelongtoActivity" />
+        <activity android:name=".activity.AppLockActivity" />
+        <activity android:name=".activity.SettingsActivity" />
         <service
             android:name=".service.DownloadService"
             android:enabled="true"

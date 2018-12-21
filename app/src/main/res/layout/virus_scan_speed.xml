@@ -30,8 +30,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_virus_scan_speed"
             android:textColor="@color/white"
-            android:textSize="38sp"
-            android:text="100％"/>
+            android:textSize="38sp"/>
         
         <LinearLayout
             android:layout_margin="5dp"

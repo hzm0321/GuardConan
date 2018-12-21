@@ -43,6 +43,9 @@ public class ProgressManagerActivity extends BaseActivity {
     @BindView(R.id.rv_progress_manager)
     RecyclerView rvProgress;
 
+    @BindView(R.id.tv_user_runningprocess)
+    TextView mProcessNumTV;
+
     private List<TaskInfo> runningTaskInfos;
 
     private List<TaskInfo> userTaskInfos = new ArrayList<>();
@@ -92,26 +95,6 @@ public class ProgressManagerActivity extends BaseActivity {
                 android.text.format.Formatter.formatFileSize(this, totalMem));
         userTaskInfos.clear();
         sysTaskInfos.clear();
-        new Thread(){
-            @Override
-            public void run() {
-                runningTaskInfos = TaskInfoParser.getRunningTaskInfos(getApplicationContext());
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (TaskInfo info : runningTaskInfos) {
-                            if (info.isUserApp) {
-                                userTaskInfos.add(info);
-                            } else {
-                                sysTaskInfos.add(info);
-                            }
-                        }
-                        if (adapter == null) {
-                        }
-                    }
-                });
-            }
-        }.start();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package cn.hzmeurasia.guardconan.adapter;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -18,10 +20,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.hzmeurasia.guardconan.MyApplication;
 import cn.hzmeurasia.guardconan.R;
+import cn.hzmeurasia.guardconan.activity.AdvancedToolsActivity;
 import cn.hzmeurasia.guardconan.activity.AppManagerActivity;
 import cn.hzmeurasia.guardconan.activity.BlackNumberActivity;
 import cn.hzmeurasia.guardconan.activity.CleanCacheActivity;
+import cn.hzmeurasia.guardconan.activity.OperatorSetActivity;
 import cn.hzmeurasia.guardconan.activity.ProgressManagerActivity;
+import cn.hzmeurasia.guardconan.activity.SettingsActivity;
+import cn.hzmeurasia.guardconan.activity.TrafficMonitoringActivity;
 import cn.hzmeurasia.guardconan.activity.VirusScanActivity;
 import cn.hzmeurasia.guardconan.entity.Options;
 
@@ -79,6 +85,23 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.ViewHold
                     //进程管理
                     case 5:
                         ProgressManagerActivity.startAct(MyApplication.getContext());
+                        break;
+                    //流量统计
+                    case 6:
+                        SharedPreferences spf = MyApplication.getContext().getSharedPreferences("config", Context.MODE_PRIVATE);
+                        if (spf.getBoolean("isset_operator", false)) {
+                            TrafficMonitoringActivity.startAct(MyApplication.getContext());
+                        } else {
+                            OperatorSetActivity.startAct(MyApplication.getContext());
+                        }
+                        break;
+                    //高级工具
+                    case 7:
+                        AdvancedToolsActivity.startAct(MyApplication.getContext());
+                        break;
+                    //设置中心
+                    case 8:
+                        SettingsActivity.startAct(MyApplication.getContext());
                         break;
                     default:
                         break;

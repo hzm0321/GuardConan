@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -26,12 +27,16 @@ import com.google.gson.Gson;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import cn.hzmeurasia.guardconan.R;
 import cn.hzmeurasia.guardconan.base.BaseActivity;
 import cn.hzmeurasia.guardconan.entity.AppInfo;
 import cn.hzmeurasia.guardconan.service.DownloadService;
+import cn.hzmeurasia.guardconan.utils.AddressQueryUtils;
 import cn.hzmeurasia.guardconan.utils.HttpUtil;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -114,6 +119,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void loadData() {
         getAppInfoFromServer();
+        copyDb(AddressQueryUtils.DB_NAME);
     }
 
     private void getAppInfoFromServer() {
@@ -259,5 +265,39 @@ public class SplashActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         unbindService(connection);
+    }
+
+    /**
+     * 拷贝数据库
+     * @param dbName 数据库文件名
+     */
+    private void copyDb(String dbName) {
+        AssetManager assets = getAssets();
+        File filesDir = getFilesDir();
+        File desFile = new File(filesDir, dbName);
+
+        if(desFile.exists()){
+            return;
+        }
+        InputStream in = null;
+        FileOutputStream out = null;
+        try {
+            //in=context.getClass().getClassLoader().getResourceAsStream("assets/"+names[i]);
+            in = assets.open(dbName);
+            out = new FileOutputStream(desFile);
+            int len = 0;
+            byte[] buffer = new byte[1024];
+            while ((len = in.read(buffer)) != -1) {
+                out.write(buffer, 0, len);
+                out.flush();
+            }
+        } catch (IOException e) {
+        } finally {
+            try {
+                in.close();
+                out.close();
+            } catch (IOException e) {
+            }
+        }
     }
 }
